@@ -1,32 +1,32 @@
 import React from 'react';
 import styles from './PhotoContent.module.css';
 import { Link } from 'react-router-dom';
-import PhotoComents from './PhotoComents';
+import PhotoComments from './PhotoComments';
 
 const PhotoContent = ({ data }) => {
-  const { photos, coments } = data;
+  const { photo, comments } = data;
 
   return (
     <div className={styles.photo}>
       <div className={styles.img}>
-        <img src={photos.src} alt={photos.title} />
+        <img src={photo.src} alt={photo.title} />
       </div>
       <div className={styles.detail}>
         <div>
-          <p>
-            <Link to={`/perfil/${photos.author}`}>@${photos.author}</Link>
-            <span className={styles.visualizacoes}>{photos.acessos}</span>
+          <p className={styles.author}>
+            <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            <span className={styles.visualizacoes}>{photo.acessos}</span>
           </p>
           <h1 className="title">
-            <Link to={`/foto/$${photos.id}`}>{photos.title}</Link>
+            <Link to={`/foto/$${photo.id}`}>{photo.title}</Link>
           </h1>
           <ul className={styles.attributes}>
-            <li>{photos.peso} kg</li>
-            <li>{photos.idade} anos</li>
+            <li>{photo.peso} kg</li>
+            <li>{photo.idade} anos</li>
           </ul>
         </div>
       </div>
-      <PhotoComents id={photos.id} coments={coments} />
+      <PhotoComments id={photo.id} comments={comments} />
     </div>
   );
 };
