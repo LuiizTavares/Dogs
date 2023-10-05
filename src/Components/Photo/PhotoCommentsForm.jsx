@@ -8,7 +8,6 @@ import styles from './PhotoCommentsForm.module.css';
 const PhotoCommentsForm = ({ id, setComments }) => {
   const [comment, setComment] = React.useState('');
   const { request, error } = useFetch();
-  const commentsSection = React.useRef(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
