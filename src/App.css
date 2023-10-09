@@ -94,3 +94,7 @@ z-index: -1;
 .AppBody {
   flex: 1;
 }
+
+.VictoryContainer {
+  height: initial !important; 
+}
